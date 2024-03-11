@@ -3,4 +3,4 @@
 1. `ssh bandit0@bandit.labs.overthewire.org -p 2220`
 2. `bandit0`
 ---
-==With this we've logged into the game==
+**With this we've logged into the game**
