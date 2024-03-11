@@ -1,11 +1,13 @@
 # Level 5
 ## Lines of code:-
-1. `ls -a` *()*
-2. `cat .hidden`
-3. > The key which is now printed on the terminal can be copied onto the clipboard
-4. `cd ~`
-5. `exit`
-6. `ssh bandit4@bandit.labs.overthewire.org -p 2220`
-7. `2EW7BBsr6aMMoJ2HjW067dm8EgX26xNe`
+1. `ls` *()*
+2. `cd inhere`
+3. `ls`
+4. `cat .hidden`
+5. > The key which is now printed on the terminal can be copied onto the clipboard
+6. `cd ~`
+7. `exit`
+8. `ssh bandit4@bandit.labs.overthewire.org -p 2220`
+9. `2EW7BBsr6aMMoJ2HjW067dm8EgX26xNe`
 ---
 **With this we've logged into level-5**
