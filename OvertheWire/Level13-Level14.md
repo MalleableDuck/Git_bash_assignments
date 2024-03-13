@@ -8,7 +8,8 @@
 6. > The key which is now printed on the terminal can be copied onto the clipboard
 7. `cd ~`
 8. `exit`
-9. `ssh bandit14@bandit.labs.overthewire.org -p 2220`
-10. `fGrHPx402xGC7U7rXKDaxiWFTOiF0ENq`
+9. `exit`
+10. `ssh bandit14@bandit.labs.overthewire.org -p 2220`
+11. `fGrHPx402xGC7U7rXKDaxiWFTOiF0ENq`
 ---
 **With this we've logged into level-14**
