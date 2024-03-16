@@ -1,8 +1,9 @@
 # Lines of code:-
-1. `vi .gitignore`
-2. > Now inside the gitignore write *.exe *.o *.jar libraries/
-3. `git add .gitignore`
-4. `git commit -m "added gitignore"`
-5. `git verify`
+1. `git merge another-piece-of-work`
+2. `vi equation.txt`
+3. > Write "2 + 3 = 5" inside the txt file
+4.  `git add equation.txt`
+5. `git commit -m "resolved merge conflict"`
+6. `git verify`
 ---
-**With this we've finished the level-2**
+**With this we've finished the level-6**
