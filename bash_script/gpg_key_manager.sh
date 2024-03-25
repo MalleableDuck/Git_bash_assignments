@@ -4,16 +4,17 @@ create_new_key(){
 
 echo "creating a new key"
 gpg --full-generate-key
-
 }
 
 add_existing_key(){
 
-echo "Given below is the list of all the keys that have been generated, enter the ID of the one you'd like to add"
-gpg --list-secret-keys --keyid-format LONG | grep '^sec' | awk '{print $2}' | awk -F '/' '{print $2}'
-read required_id
+echo "Given above is the list of all the keys that have been generated, enter the index if the ID of the one you'd like to add"
+read required_id_pos
+while IFS= read -r line; do
+        key_ids+=( "$line" )
+done < <( gpg --list-secret-keys --keyid-format=long | awk '/sec/{if (length($2)>0) print $2}' )
 
-if [ -n "$required_id" ]; then
+if [ -n "$key_ids[(required_id_pos - 1)]" ]; then
         git config --global user.signingkey $required_id
         git config --global commit.gpgsign true
         git config --global user.signingkey
@@ -21,22 +22,26 @@ if [ -n "$required_id" ]; then
 else
         echo "Copy the ID from list above accurately"
 fi
-
 }
 
 list_of_keys(){
 
 echo "list of all keys"
-gpg --list-secret-keys --keyid-format LONG | grep '^sec' | awk '{print $2}' | awk -F '/' '{print $2}'
-
+while IFS= read -r line; do
+        key_ids+=( "$line" )
+done < <( gpg --list-secret-keys --keyid-format=long | awk '/sec/{if (length($2)>0) print $2}' )
+for i in "${!key_ids[@]}"; do
+        printf "\n$((i+1)). "
+        printf "Key_ID:- ${key_ids[$i]}\n"
+done
 }
 
 starting_menu(){
 
+read -r -d '' -a keys_array <<< "$line"
 echo "To generate a new gpg key type (1)"
 echo "To add an existing gpg key type (2)"
 echo "To see the list of all gpg keys type (3)"
-
 }
 
 check_need="y"
@@ -53,6 +58,7 @@ do
                         create_new_key
                         #check_other
                 elif [ "$option" == 2 ]; then
+                        list_of_keys
                         add_existing_key
                 elif [ "$option" == "3" ]; then
                         list_of_keys
