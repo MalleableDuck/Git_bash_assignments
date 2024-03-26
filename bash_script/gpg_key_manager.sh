@@ -14,14 +14,17 @@ while IFS= read -r line; do
         key_ids+=( "$line" )
 done < <( gpg --list-secret-keys --keyid-format=long | awk '/sec/{if (length($2)>0) print $2}' )
 
-if [ -n "$key_ids[(required_id_pos - 1)]" ]; then
-        git config --global user.signingkey $required_id
+req_key_id="$key_ids[(required_id_pos - 1)]"
+
+if [ -n "$req_key_id" ]; then
+        git config --global user.signingkey $req_key_id
         git config --global commit.gpgsign true
         git config --global user.signingkey
         echo "You can add the selected gpg key to your account"
 else
-        echo "Copy the ID from list above accurately"
+        echo "Enter an integer value for the key-id given that is within its bounds"
 fi
+
 }
 
 list_of_keys(){
