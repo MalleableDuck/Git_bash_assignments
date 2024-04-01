@@ -39,12 +39,27 @@ for i in "${!key_ids[@]}"; do
 done
 }
 
+delete_key(){
+
+list_of_keys
+echo "Choose the index of the key you'd like to delete from the above list"
+read required_id_pos
+if [[ $gpg_count -ge $required_id_pos ]] && [[ $required_id_pos -gt 0 ]]; then
+        gpg_to_delete="${keys_array[(required_id_pos - 1)]}"
+        gpg --delete-secret-keys $gpg_to_delete
+        echo -e "${GREEN}Gpg deleted with id $(echo -n "$gpg_to_delete" | tr -d '\n') ${DEFAULT}"
+else
+        echo -e "${RED}Please enter from 1 to $gpg_count${DEFAULT}"
+fi
+}
+
 starting_menu(){
 
 read -r -d '' -a keys_array <<< "$line"
 echo "To generate a new gpg key type (1)"
 echo "To add an existing gpg key type (2)"
 echo "To see the list of all gpg keys type (3)"
+echo "To delte an existing gpg key type (4)"
 }
 
 check_need="y"
@@ -65,6 +80,8 @@ do
                         add_existing_key
                 elif [ "$option" == "3" ]; then
                         list_of_keys
+                elif [ "$option" == "4" ]; then
+                        delete_key
                 else
                         echo "That's not a valid input, please enter an integer from 1 to 4"
                 fi
