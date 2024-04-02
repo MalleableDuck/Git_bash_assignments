@@ -4,4 +4,5 @@
 3. > Change the commit message to it's previous
 4. `git verify`
 ---
+*Way to change commit message*
 **With this we've finished the level-11**
