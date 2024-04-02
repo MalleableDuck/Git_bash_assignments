@@ -3,4 +3,5 @@
 2. `git rebase hot-bugfix`
 3. `git verify`
 ---
+*Use of rebase*
 **With this we've finished the level-8**
