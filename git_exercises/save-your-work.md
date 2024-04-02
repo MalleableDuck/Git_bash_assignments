@@ -7,4 +7,5 @@
 6. `git commit -am "Finished removing the bug"`
 7. `git verify`
 ---
+*We can save our point of work with stash apply, change the bug.txt file as that's the only small change required and then save work from that point*
 **With this we've finished the level-7**
