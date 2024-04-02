@@ -9,4 +9,5 @@
 8. `git rebase --continue`
 9. `git verify`
 ---
+*Add a file that does your necessary changes and rebase into the main branch, sa the file wasn't previously added it'll cause a merge conflict, fix it by writing the required equation equation.txt and solve the merge conflict, then we can proceed with the rebase*
 **With this we've finished the level-13**
