@@ -6,4 +6,5 @@
 5. `git commit -m "resolved merge conflict"`
 6. `git verify`
 ---
+*We can fix merge conflicts manually by writing our preference in the equation.txt file*
 **With this we've finished the level-6**
