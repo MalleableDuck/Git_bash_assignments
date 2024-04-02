@@ -1,3 +1,5 @@
+#usr/bin/bash
+
 create_new_key(){
 
 echo "creating a new key"
